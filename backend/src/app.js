@@ -3,12 +3,14 @@ import dotenv from "dotenv"
 import { connectionDB } from "./dbconfig/db.js";
 import userRouter from "./routers/user.router.js";
 import studentRouter from "./routers/student.router.js";
+import teacherRouter from "./routers/teacher.router.js";
 
 
 const app = express()
 app.use(express.json())
 app.use("/api/auth",userRouter)
 app.use("/api/student",studentRouter)
+app.use("/api/teacher",teacherRouter )
 dotenv.config();
 const port = process.env.PORT || 3000;
 connectionDB()
