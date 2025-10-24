@@ -1,5 +1,6 @@
 import express from "express"
 import dotenv from "dotenv"
+import cors from "cors"
 import { connectionDB } from "./dbconfig/db.js";
 import userRouter from "./routers/user.router.js";
 import studentRouter from "./routers/student.router.js";
@@ -10,6 +11,7 @@ import dashboardRouter from "./routers/dashbord.router.js";
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 app.use("/api/auth",userRouter)
 app.use("/api/student",studentRouter)
 app.use("/api/teacher",teacherRouter )
